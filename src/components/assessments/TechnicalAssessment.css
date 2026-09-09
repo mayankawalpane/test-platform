@@ -1,0 +1,270 @@
+.assessment-container {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.assessment-header {
+  background: white;
+  padding: 20px 32px;
+  border-bottom: 1px solid #e1e4e8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.assessment-header h2 {
+  font-size: 24px;
+  color: #000;
+  margin: 0;
+}
+
+.header-info {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.timer {
+  font-size: 18px;
+  font-weight: 600;
+  color: #A100FF;
+}
+
+.question-counter {
+  font-size: 16px;
+  color: #6c6c6c;
+}
+
+.assessment-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.question-card {
+  background: white;
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.category-badge {
+  background: #f0e6ff;
+  color: #A100FF;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.question-number {
+  font-size: 14px;
+  color: #6c6c6c;
+}
+
+.question-text {
+  font-size: 20px;
+  color: #000;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  white-space: pre-line;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 2px solid #e1e4e8;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.option-item:hover {
+  border-color: #A100FF;
+  background: #fafafa;
+}
+
+.option-item.selected {
+  border-color: #A100FF;
+  background: #f0e6ff;
+}
+
+.option-radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d1d5db;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.option-item.selected .option-radio {
+  border-color: #A100FF;
+}
+
+.radio-dot {
+  width: 10px;
+  height: 10px;
+  background: #A100FF;
+  border-radius: 50%;
+}
+
+.option-text {
+  font-size: 16px;
+  color: #000;
+  flex: 1;
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.nav-btn {
+  padding: 12px 32px;
+  border: 2px solid #e1e4e8;
+  background: white;
+  color: #000;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover:not(:disabled) {
+  border-color: #A100FF;
+  color: #A100FF;
+}
+
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.nav-btn.primary {
+  background: #A100FF;
+  border-color: #A100FF;
+  color: white;
+}
+
+.nav-btn.primary:hover {
+  background: #8800D9;
+  border-color: #8800D9;
+  color: white;
+}
+
+.nav-btn.submit {
+  background: #27ae60;
+  border-color: #27ae60;
+  color: white;
+}
+
+.nav-btn.submit:hover {
+  background: #229954;
+  border-color: #229954;
+}
+
+.back-btn-secondary {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 24px;
+  background: transparent;
+  border: none;
+  color: #6c6c6c;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.results-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 24px;
+}
+
+.results-card {
+  background: white;
+  border-radius: 8px;
+  padding: 48px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.results-card h1 {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.results-card.passed h1 {
+  color: #27ae60;
+}
+
+.results-card.failed h1 {
+  color: #e74c3c;
+}
+
+.score-display {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.score-large {
+  font-size: 48px;
+  font-weight: 700;
+  color: #000;
+}
+
+.percentage {
+  font-size: 24px;
+  color: #6c6c6c;
+}
+
+.result-message {
+  font-size: 16px;
+  color: #6c6c6c;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.continue-btn {
+  width: 100%;
+  padding: 14px;
+  background: #A100FF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.continue-btn:hover {
+  background: #8800D9;
+}

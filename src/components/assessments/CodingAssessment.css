@@ -1,0 +1,133 @@
+.coding-content {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  height: calc(100vh - 120px);
+  background: #f5f5f5;
+}
+
+.question-sidebar {
+  background: white;
+  border-right: 1px solid #e1e4e8;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.question-info {
+  padding: 24px;
+  flex: 1;
+}
+
+.question-info h3 {
+  font-size: 20px;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+.question-description {
+  font-size: 15px;
+  color: #6c6c6c;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.test-cases {
+  margin-bottom: 24px;
+}
+
+.test-cases h4 {
+  font-size: 16px;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+.test-case {
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.expected-output {
+  background: #f0e6ff;
+  padding: 12px;
+  border-radius: 4px;
+}
+
+.expected-output h4 {
+  font-size: 14px;
+  color: #A100FF;
+  margin-bottom: 8px;
+}
+
+.expected-output p {
+  font-size: 13px;
+  color: #000;
+  margin: 0;
+}
+
+.question-nav {
+  display: flex;
+  gap: 8px;
+  padding: 16px 24px;
+  border-top: 1px solid #e1e4e8;
+  flex-wrap: wrap;
+}
+
+.question-nav-btn {
+  width: 48px;
+  height: 48px;
+  border: 2px solid #e1e4e8;
+  background: white;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.question-nav-btn:hover {
+  border-color: #A100FF;
+}
+
+.question-nav-btn.active {
+  background: #A100FF;
+  border-color: #A100FF;
+  color: white;
+}
+
+.question-nav-btn.completed {
+  background: #27ae60;
+  border-color: #27ae60;
+  color: white;
+}
+
+.editor-section {
+  overflow: hidden;
+}
+
+.coding-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid #e1e4e8;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .coding-content {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  
+  .question-sidebar {
+    border-right: none;
+    border-bottom: 1px solid #e1e4e8;
+  }
+}

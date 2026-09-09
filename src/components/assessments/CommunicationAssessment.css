@@ -1,0 +1,186 @@
+.audio-section {
+  margin: 24px 0;
+  padding: 20px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.audio-play-btn {
+  padding: 12px 32px;
+  background: #A100FF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.audio-play-btn:hover:not(:disabled) {
+  background: #8800D9;
+  transform: scale(1.05);
+}
+
+.audio-play-btn:disabled {
+  background: #27ae60;
+  cursor: not-allowed;
+}
+
+.recording-section {
+  margin: 24px 0;
+  padding: 24px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.passage-box {
+  background: white;
+  padding: 20px;
+  border-left: 4px solid #A100FF;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.passage-box p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #000;
+  margin: 0;
+}
+
+.think-btn {
+  padding: 12px 32px;
+  background: #f39c12;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.think-timer {
+  padding: 16px;
+  background: #fff3cd;
+  border: 2px solid #f39c12;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #856404;
+  margin-bottom: 16px;
+}
+
+.recording-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.record-btn {
+  padding: 16px 40px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+.record-btn:hover {
+  background: #c0392b;
+  transform: scale(1.05);
+}
+
+.stop-btn {
+  padding: 16px 40px;
+  background: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.recording-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.success-text {
+  color: #27ae60;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0;
+}
+
+.save-recording-btn {
+  padding: 12px 32px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.save-recording-btn:hover {
+  background: #229954;
+}
+
+.retry-btn {
+  padding: 10px 24px;
+  background: transparent;
+  color: #6c6c6c;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.retry-btn:hover {
+  background: #f9f9f9;
+  border-color: #A100FF;
+  color: #A100FF;
+}
+
+@media (max-width: 768px) {
+  .audio-play-btn {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+  
+  .record-btn, .stop-btn {
+    padding: 14px 32px;
+    font-size: 16px;
+  }
+  
+  .passage-box p {
+    font-size: 14px;
+  }
+}

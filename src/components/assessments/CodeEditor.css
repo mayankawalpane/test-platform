@@ -1,0 +1,132 @@
+.code-editor {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #1e1e1e;
+}
+
+.editor-toolbar {
+  background: #2d2d2d;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #3e3e3e;
+}
+
+.language-tag {
+  color: #A100FF;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 12px;
+  background: rgba(161, 0, 255, 0.2);
+  border-radius: 4px;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.toolbar-btn {
+  padding: 8px 16px;
+  background: #3e3e3e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.toolbar-btn:hover:not(:disabled) {
+  background: #4e4e4e;
+}
+
+.toolbar-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.toolbar-btn.submit-btn {
+  background: #27ae60;
+}
+
+.toolbar-btn.submit-btn:hover {
+  background: #229954;
+}
+
+.editor-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.code-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.code-header-footer {
+  background: #252525;
+  padding: 12px;
+  border-bottom: 1px solid #3e3e3e;
+}
+
+.code-header-footer pre {
+  margin: 0;
+  color: #808080;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.code-textarea {
+  flex: 1;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  border: none;
+  padding: 16px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  resize: none;
+  outline: none;
+}
+
+.code-textarea::placeholder {
+  color: #808080;
+}
+
+.output-panel {
+  background: #0e0e0e;
+  border-top: 1px solid #3e3e3e;
+  max-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.output-header {
+  background: #2d2d2d;
+  color: white;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-bottom: 1px solid #3e3e3e;
+}
+
+.output-content {
+  flex: 1;
+  padding: 12px;
+  color: #d4d4d4;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-y: auto;
+  margin: 0;
+  white-space: pre-wrap;
+}
