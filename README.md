@@ -48,6 +48,19 @@ npm run dev
 npm run build
 ```
 
+## Deploy to Render
+
+1. **Connect your repository** to Render
+2. **Create a new Static Site**:
+   - Build Command: `npm install && npm run build`
+   - Publish Directory: `dist`
+3. **Add Environment Variable**:
+   - Key: `VITE_PAYMENT_PLATFORM_URL`
+   - Value: `https://your-payment-platform.vercel.app` (or your actual payment URL)
+4. **Deploy** - Render will automatically build and deploy
+
+The `render.yaml` and `_redirects` files are already configured for proper SPA routing.
+
 ## Access Flow
 
 1. User comes from payment platform after successful payment: `https://test-platform.com/test`
@@ -58,12 +71,18 @@ npm run build
 
 ## Configuration
 
-Update payment platform URL in `src/App.jsx` (lines ~21 and ~28):
+Set your payment platform URL as an environment variable:
 
-```javascript
-// Change this to your payment platform URL
-window.location.href = 'https://payment-platform-url.com'
+**For local development**, create `.env` file:
+```env
+VITE_PAYMENT_PLATFORM_URL=https://your-payment-platform.vercel.app
 ```
+
+**For Render deployment**:
+1. Go to your Render dashboard
+2. Select your test-platform service
+3. Go to Environment tab
+4. Add: `VITE_PAYMENT_PLATFORM_URL` = `https://your-payment-platform-url.com`
 
 ## Important Notes
 

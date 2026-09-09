@@ -4,7 +4,7 @@ import { getSession, markEmailPaid, isEmailPaid } from './lib/auth'
 import './App.css'
 
 // TODO: Replace with your payment platform URL
-const PAYMENT_PLATFORM_URL = 'https://your-payment-platform-url.com'
+const PAYMENT_PLATFORM_URL = process.env.VITE_PAYMENT_PLATFORM_URL || 'https://aspire-nexus.vercel.app'
 
 function App() {
   const [sessionEmail, setSessionEmail] = useState(() => getSession())
