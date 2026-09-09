@@ -1,32 +1,11 @@
 import { useState } from 'react'
 import TestAssessment from './TestAssessment'
-import { isEmailPaid, recordAttempt, getAttempts } from '../lib/auth'
+import { recordAttempt, getAttempts } from '../lib/auth'
 import './TestRedirectPage.css'
 
 function TestRedirectPage({ sessionEmail, onBackToCourses }) {
   const [showTest, setShowTest] = useState(false)
   const attempts = getAttempts(sessionEmail)
-  const hasPaid = isEmailPaid(sessionEmail, 1)
-
-  // If user hasn't paid, they shouldn't be here
-  if (!hasPaid) {
-    return (
-      <div className="redirect-page">
-        <div className="redirect-card">
-          <div className="redirect-lock-badge">🔒</div>
-
-          <h1>Payment Required</h1>
-          <p className="redirect-sub">
-            You need to enroll in the course by making a payment of ₹20 to access this test.
-          </p>
-
-          <button className="redirect-back" onClick={onBackToCourses}>
-            ← Back to Courses
-          </button>
-        </div>
-      </div>
-    )
-  }
 
   const startTest = () => {
     recordAttempt(sessionEmail)
