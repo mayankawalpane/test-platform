@@ -1,81 +1,77 @@
 import { useState, useEffect } from 'react'
 import TestRedirectPage from './components/TestRedirectPage'
-import { getSession, markEmailPaid, isEmailPaid } from './lib/auth'
+import { getSession, isEmailPaid } from './lib/auth'
 import './App.css'
 
-// TODO: Replace with your payment platform URL
-const PAYMENT_PLATFORM_URL = process.env.VITE_PAYMENT_PLATFORM_URL || 'https://aspire-nexus.vercel.app'
+// Payment platform URL
+const PAYMENT_PLATFORM_URL = import.meta.env.VITE_PAYMENT_PLATFORM_URL || 'https://aspire-nexus.vercel.app/login'
 
 function App() {
   const [sessionEmail, setSessionEmail] = useState(() => getSession())
-  const [loading, setLoading] = useState(true)
+  const [hasAccess, setHasAccess] = useState(false)
+  const [checking, setChecking] = useState(true)
 
-  // Handle redirect from Razorpay payment
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search)
-    const email = params.get('email')
-    const courseId = params.get('course')
+    // Check if user has session and payment in localStorage
+    const email = getSession()
     
-    if (email && courseId) {
-      // User just completed payment and was redirected here
-      console.log('Payment redirect detected:', email, courseId)
-      
-      // Save session
-      localStorage.setItem('aspire_session', email)
-      setSessionEmail(email)
-      
-      // Mark as paid (coming from Razorpay means payment succeeded)
-      markEmailPaid(email, parseInt(courseId), {
-        paymentId: 'razorpay_' + Date.now(),
-        amount: 2000,
-        currency: 'INR',
-        timestamp: new Date().toISOString()
-      })
-      
-      // Clean URL (remove query params)
-      window.history.replaceState({}, '', window.location.pathname)
-      setLoading(false)
+    if (!email) {
+      setChecking(false)
       return
     }
     
-    // Check existing session
-    if (sessionEmail) {
-      // Verify user has paid for any course
-      const hasPaid = isEmailPaid(sessionEmail, 1) || isEmailPaid(sessionEmail, 2)
-      
-      if (!hasPaid) {
-        // No payment found, redirect back to payment platform
-        console.log('No payment found, redirecting...')
-        window.location.href = PAYMENT_PLATFORM_URL
-        return
-      }
-      setLoading(false)
-    } else {
-      // No session, redirect to payment platform
-      console.log('No session found, redirecting...')
-      window.location.href = PAYMENT_PLATFORM_URL
-    }
-  }, [sessionEmail])
+    // Check if user has paid for any course
+    const hasPaid = isEmailPaid(email, 1) || isEmailPaid(email, 2)
+    
+    setSessionEmail(email)
+    setHasAccess(hasPaid)
+    setChecking(false)
+  }, [])
 
   const handleBackToCourses = () => {
     window.location.href = PAYMENT_PLATFORM_URL
   }
 
-  if (loading) {
+  if (checking) {
     return (
       <div className="app">
         <main className="main-content" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
           <div style={{ textAlign: 'center' }}>
-            <h2>Loading your test...</h2>
-            <p>Please wait...</p>
+            <h2>Checking access...</h2>
           </div>
         </main>
       </div>
     )
   }
 
-  if (!sessionEmail) {
-    return null // Will redirect
+  // Show unauthorized message if no access
+  if (!sessionEmail || !hasAccess) {
+    return (
+      <div className="app">
+        <main className="main-content" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
+          <div style={{ textAlign: 'center', maxWidth: '500px', padding: '40px' }}>
+            <h2 style={{ color: '#ef4444', marginBottom: '16px' }}>Access Denied</h2>
+            <p style={{ marginBottom: '24px', color: '#6b7280' }}>
+              No payment found. Please complete payment on the same browser to access tests.
+            </p>
+            <a 
+              href={PAYMENT_PLATFORM_URL}
+              style={{
+                display: 'inline-block',
+                padding: '12px 32px',
+                background: '#667eea',
+                color: 'white',
+                textDecoration: 'none',
+                borderRadius: '8px',
+                fontWeight: '600'
+              }}
+            >
+              Go to Payment Platform
+            </a>
+          </div>
+        </main>
+      </div>
+    )
   }
 
   return (

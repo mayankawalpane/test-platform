@@ -18,9 +18,9 @@
 ### Environment Variables
 Click **"Advanced"** → **"Add Environment Variable"**:
 - **Key**: `VITE_PAYMENT_PLATFORM_URL`
-- **Value**: `https://your-payment-platform.vercel.app`
+- **Value**: `https://aspire-nexus.vercel.app/login`
 
-Replace with your actual payment platform URL!
+Replace with your actual payment platform login URL!
 
 ### Auto-Deploy
 ✅ Enable "Auto-Deploy" so changes push automatically
